@@ -43,16 +43,6 @@ h[k] = Filter coefficient
 • No feedback required
 • Simple implementation
 • Suitable for FPGA and ASIC designs
-# FIR Filter Architecture
-For a 4-Tap FIR Filter:
-x(n) ----> Delay ----> Delay ----> Delay
-  |            |           |          |
-  h0           h1          h2         h3
-  |            |           |          |
-  +------------+-----------+----------+
-                    |
-                    Output
-                
 # Filter Coefficients
 The following coefficients are selected:
 h0 = 1
@@ -61,23 +51,6 @@ h2 = 3
 h3 = 4
 Filter Equation:
 y(n)=1*x(n)+2*x(n-1)+3*x(n-2)+4*x(n-3)
-# Block Diagram
-+--------+
-Input ---------->| Shift  |
-                 |Register |
-                 +--------+
-                      |
-      +------+------+------+------+
-      |      |      |      |      |
-     x0     x1     x2     x3
-      |      |      |      |
-      *1     *2     *3     *4
-      |      |      |      |
-      +------+------+------+------+
-                      |
-                    Adder
-                      |
-                   Output
 # Performance Analysis
 # Stability
 The FIR filter is inherently stable because it contains no feedback paths.
